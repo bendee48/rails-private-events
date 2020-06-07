@@ -7,6 +7,7 @@ class UserSessionsController < ApplicationController
 
     if @user
       session[:user_id] = @user.id
+      flash.notice = "Successfully signed in."
       redirect_to @user
     else
       render :new 
@@ -14,5 +15,8 @@ class UserSessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    flash.notice = "Sucessfully logged out."
+    redirect_to users_login_path
   end
 end
