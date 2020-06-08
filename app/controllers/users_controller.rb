@@ -8,14 +8,16 @@ class UsersController < ApplicationController
     
     if @user.save
       flash.notice = "User successfully created."
+      session[:user_id] = @user.id
       redirect_to @user
     else
+      flash.now.notice = "User not found."
       render :new
     end
   end
 
   def show
-    @user = User.find(params[:id])
+    @user ||= User.includes(:created_events).find(params[:id])
   end
 
   private
