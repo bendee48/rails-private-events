@@ -6,5 +6,7 @@
   <p>Date: <%= e.date %></p>
   <p>Location: <%= e.location %></p>
   <p>Created by: <%= e.creator.name %></p>
+
+  <%= button_to "Attend", event_attendances_path, params: {event_id: e.id} %>
   <hr>
 <% end %>
