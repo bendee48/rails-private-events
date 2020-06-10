@@ -3,14 +3,16 @@ class EventAttendancesController < ApplicationController
   end
 
   def create
-    @event_attendance = Event.find(params[:event_id]).attendees
+    @event = Event.find(params[:event_id])
     @user = User.find(session[:user_id])
 
-    if @event_attendance << @user
-      flash.notice = "You're attending an event."
-      redirect_to :events
+    begin 
+      @event.attendees << @user
+    rescue 
+      flash.notice = "Already attending this event."
+      redirect_to @event
     else
-      flash.notice = "There was an error. Please try again."
+      flash.notice = "You're attending an event."
       redirect_to :events
     end
   end
