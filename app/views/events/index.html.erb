@@ -1,12 +1,10 @@
 <h1>Events</h1>
 
 <% @events.each do |e| %>
-  <p>Title: <%= e.title %></p>
+  <h2><%= link_to e.title, event_path(e.id) %></h2>  
   <p>Description: <%= e.body %></p>
   <p>Date: <%= e.date %></p>
   <p>Location: <%= e.location %></p>
   <p>Created by: <%= e.creator.name %></p>
-
-  <%= button_to "Attend", event_attendances_path, params: {event_id: e.id} %>
   <hr>
 <% end %>

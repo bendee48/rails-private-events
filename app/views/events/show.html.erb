@@ -2,3 +2,4 @@
 
 <h3>Title: <%= @event.title %><h3>
 <h3>Created by: <%= @event.creator.name %><h3>
+<%= button_to "Attend", event_attendances_path, params: {event_id: @event.id} %>
