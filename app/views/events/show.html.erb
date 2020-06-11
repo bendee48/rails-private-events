@@ -1,5 +1,16 @@
 <h1>Event</h1>
 
-<h3>Title: <%= @event.title %><h3>
-<h3>Created by: <%= @event.creator.name %><h3>
+<h2><%= @event.title %></h2>
+<p>Details: <%= @event.body %></p>
+<p>When: <%= @event.date %></p>
+<p>Where: <%= @event.location %></p>
+<p>Created by: <%= @event.creator.name %></p>
 <%= button_to "Attend", event_attendances_path, params: {event_id: @event.id} %>
+<br />
+
+<%= link_to "Back to Events", events_path %>
+
+<h4>Attending</h4>
+<% @event.attendees.each do |a| %>
+  <p><%= a.name %></p>
+<% end %>

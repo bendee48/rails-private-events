@@ -12,8 +12,8 @@ class EventAttendancesController < ApplicationController
       flash.notice = "Already attending this event."
       redirect_to @event
     else
-      flash.notice = "You're attending an event."
-      redirect_to :events
+      flash.notice = "You're attending this event."
+      redirect_to @event
     end
   end
 end
