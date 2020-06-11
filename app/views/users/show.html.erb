@@ -9,8 +9,18 @@
   <hr>
 <% end %>
 
-<h1>Events Attending</h1>
-<% @user.attended_events.each do |e| %>
+<h1>Upcoming Events</h1>
+<% @user.upcoming_events.each do |e| %>
+  <p>Title: <%= e.title %></p>
+  <p>Details: <%= e.body %></p>
+  <p>Date: <%= e.date %></p>
+  <p>Location: <%= e.location %></p>
+  <p>Created by: <%= e.creator.name %></p>
+  <hr>
+<% end %>
+
+<h1>Past Events</h1>
+<% @user.past_events.each do |e| %>
   <p>Title: <%= e.title %></p>
   <p>Details: <%= e.body %></p>
   <p>Date: <%= e.date %></p>
