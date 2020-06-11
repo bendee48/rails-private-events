@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'events#index'
   get 'users/login', to: 'user_sessions#new'
   post 'users/create', to: 'user_sessions#create'
   get 'users/logout', to: 'user_sessions#destroy'
