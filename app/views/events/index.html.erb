@@ -1,7 +1,16 @@
-<h1>Events</h1>
+<h1>Upcoming Events</h1>
+<% @upcoming_events.each do |e| %>
+  <h3><%= link_to e.title, event_path(e.id) %></h3>  
+  <p>Description: <%= e.body %></p>
+  <p>Date: <%= e.date %></p>
+  <p>Location: <%= e.location %></p>
+  <p>Created by: <%= e.creator.name %></p>
+  <hr>
+<% end %>
 
-<% @events.each do |e| %>
-  <h2><%= link_to e.title, event_path(e.id) %></h2>  
+<h1>Past Events</h1>
+<% @past_events.each do |e| %>
+  <h3><%= link_to e.title, event_path(e.id) %></h3>  
   <p>Description: <%= e.body %></p>
   <p>Date: <%= e.date %></p>
   <p>Location: <%= e.location %></p>
