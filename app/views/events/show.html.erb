@@ -5,12 +5,14 @@
 <p>When: <%= @event.date %></p>
 <p>Where: <%= @event.location %></p>
 <p>Created by: <%= @event.creator.name %></p>
-<%= button_to "Attend", event_attendances_path, params: {event_id: @event.id} %>
+<% if logged_in? %>
+  <%= button_to "Attend", event_attendances_path, params: {event_id: @event.id} %>
+<% end %>
 <br />
 
-<%= link_to "Back to Events", events_path %>
-
 <h4>Attending</h4>
-<% @event.attendees.each do |a| %>
-  <p><%= a.name %></p>
-<% end %>
+<ul>
+  <% @event.attendees.each do |a| %>
+    <li><%= a.name %></li>
+  <% end %>
+</ul>

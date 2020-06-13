@@ -10,13 +10,26 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <ul class="left-nav">
+          <li><%= link_to "Home", root_path %></li>
+        </ul>
+        <ul class="right-nav">
+          <% if logged_in? %>
+            <li><%= current_user.name %> is logged in.</li>
+            <li><button><%= link_to "Create Event", new_event_path %></button></li>
+            <li><button><%= link_to "Log Out", users_logout_path %></button></li>
+          <% else %>
+            <li><button><%= link_to "Log In", users_login_path %></button></li>
+            <li><button><%= link_to "Sign Up", new_user_path %></button></li>
+          <% end%>
+        </ul>
+      </nav>
+    </header>
+
     <% if flash.notice %>
       <p><%= flash.notice %></p>
-    <% end %>
-
-    <% if logged_in? %>
-      <p><%= current_user.name %> is logged in.<p>
-      <%= link_to "Log out", users_logout_path %>
     <% end %>
 
     <%= yield %>
