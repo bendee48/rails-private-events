@@ -2,9 +2,9 @@
 <% @upcoming_events.each do |e| %>
   <h3><%= link_to e.title, event_path(e.id) %></h3>  
   <p>Description: <%= e.body %></p>
-  <p>Date: <%= e.date %></p>
+  <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
   <p>Location: <%= e.location %></p>
-  <p>Created by: <%= e.creator.name %></p>
+  <p>Created by: <%= link_to e.creator.name, user_path(e.creator.id) %></p>
   <hr>
 <% end %>
 
@@ -12,8 +12,8 @@
 <% @past_events.each do |e| %>
   <h3><%= link_to e.title, event_path(e.id) %></h3>  
   <p>Description: <%= e.body %></p>
-  <p>Date: <%= e.date %></p>
+  <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
   <p>Location: <%= e.location %></p>
-  <p>Created by: <%= e.creator.name %></p>
+  <p>Created by: <%= link_to e.creator.name, user_path(e.creator.id) %></p>
   <hr>
 <% end %>

@@ -69,3 +69,9 @@ nav button a:active {
   text-align: center;
   background-color: #e4bfff;
 }
+
+/*User Page*/
+
+.user-name {
+  color: #6e00bf;
+}

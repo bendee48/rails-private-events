@@ -2,9 +2,9 @@
 
 <h2><%= @event.title %></h2>
 <p>Details: <%= @event.body %></p>
-<p>When: <%= @event.date %></p>
+<p>When: <%= @event.date.strftime("%d/%m/%y at %H:%M") %></p>
 <p>Where: <%= @event.location %></p>
-<p>Created by: <%= @event.creator.name %></p>
+<p>Created by: <%= link_to @event.creator.name, user_path(@event.creator.id) %></p>
 <% if logged_in? %>
   <%= button_to "Attend", event_attendances_path, params: {event_id: @event.id} %>
 <% end %>
@@ -13,6 +13,6 @@
 <h4>Attending</h4>
 <ul>
   <% @event.attendees.each do |a| %>
-    <li><%= a.name %></li>
+    <li><%= link_to a.name, user_path(a.id) %></li>
   <% end %>
 </ul>
