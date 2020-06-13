@@ -2,7 +2,7 @@
 <h1>Created Events</h1>
 
 <% @user.created_events.date_order.each do |e| %>
-  <p>Title: <%= e.title %></p>
+  <p>Title: <%= link_to e.title, event_path(e.id) %></p>
   <p>Details: <%= e.body %></p>
   <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
   <p>Location: <%= e.location %></p>
@@ -11,7 +11,7 @@
 
 <h1>Upcoming Events</h1>
 <% @user.attended_events.upcoming.each do |e| %>
-  <p>Title: <%= e.title %></p>
+  <p>Title: <%= link_to e.title, event_path(e.id) %></p>
   <p>Details: <%= e.body %></p>
   <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
   <p>Location: <%= e.location %></p>
@@ -21,7 +21,7 @@
 
 <h1>Past Events</h1>
 <% @user.attended_events.past.each do |e| %>
-  <p>Title: <%= e.title %></p>
+  <p>Title: <%= link_to e.title, event_path(e.id) %></p>
   <p>Details: <%= e.body %></p>
   <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
   <p>Location: <%= e.location %></p>
