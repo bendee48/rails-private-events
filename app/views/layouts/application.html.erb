@@ -13,11 +13,12 @@
     <header>
       <nav>
         <ul class="left-nav">
-          <li><%= link_to "Home", root_path %></li>
+          <li><button><%= link_to "Home", root_path %></button></li>
         </ul>
         <ul class="right-nav">
           <% if logged_in? %>
             <li><%= current_user.name %> is logged in.</li>
+            <li><button><%= link_to "Profile", user_path(current_user.id) %></button></li>
             <li><button><%= link_to "Create Event", new_event_path %></button></li>
             <li><button><%= link_to "Log Out", users_logout_path %></button></li>
           <% else %>
@@ -28,9 +29,11 @@
       </nav>
     </header>
 
-    <% if flash.notice %>
-      <p><%= flash.notice %></p>
-    <% end %>
+    <div class="notice-bar">
+      <% if flash.notice %>
+        <p><%= flash.notice %></p>
+      <% end %>
+    </div>    
 
     <%= yield %>
   </body>

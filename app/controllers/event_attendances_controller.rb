@@ -1,7 +1,4 @@
 class EventAttendancesController < ApplicationController
-  def new
-  end
-
   def create
     @event = Event.find(params[:event_id])
     @user = User.find(session[:user_id])

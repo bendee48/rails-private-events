@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :require_login, only: [:new, :create]
+  
   def index
     @upcoming_events = Event.includes(:creator).upcoming
     @past_events = Event.includes(:creator).past

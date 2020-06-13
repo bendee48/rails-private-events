@@ -46,8 +46,8 @@ nav ul li {
 }
 
 nav button {
-  background-color: #4387fd;
-  border: 1px solid #4387fd;
+  background-color: #bc61ff;
+  border: 1px solid #bc61ff;
   height: 30px;
   color: white;
   font-weight: bold;
@@ -61,4 +61,11 @@ nav button a:visited {
 
 nav button a:active {
   color: #aaaaaa;
+}
+
+/*Notice Bar*/
+
+.notice-bar {
+  text-align: center;
+  background-color: #e4bfff;
 }
