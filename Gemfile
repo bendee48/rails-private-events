@@ -41,6 +41,9 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'hirb', '~> 0.7.3'
+  gem 'bullet', '~> 6.1'
+  gem 'ruby_gntp', '~> 0.3.4'
+  gem 'xmpp4r', '~> 0.5.6'
 end
 
 group :test do

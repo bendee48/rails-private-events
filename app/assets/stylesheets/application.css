@@ -28,18 +28,25 @@
 
 /*Nav bar*/
 
-nav a {
-   text-decoration: none;
- }
-
 nav {
   font-size: 15px;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
   color: #535353;
-  padding: 0px;
+  padding: 10px;
+  background-color: #fcf5ff;
 }
+
+nav li.private-events {
+  font-size: 25px;
+  font-style: oblique;
+  font-weight: 900;
+}
+
+nav a {
+   text-decoration: none;
+ }
 
 nav ul {
   list-style-type: none;
