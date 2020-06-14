@@ -10,7 +10,7 @@
 <% end %>
 
 <h1>Upcoming Events</h1>
-<% @user.attended_events.upcoming.each do |e| %>
+<% @user.attended_events.includes(:creator).upcoming.each do |e| %>
   <p>Title: <%= link_to e.title, event_path(e.id) %></p>
   <p>Details: <%= e.body %></p>
   <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
@@ -20,7 +20,7 @@
 <% end %>
 
 <h1>Past Events</h1>
-<% @user.attended_events.past.each do |e| %>
+<% @user.attended_events.includes(:creator).past.each do |e| %>
   <p>Title: <%= link_to e.title, event_path(e.id) %></p>
   <p>Details: <%= e.body %></p>
   <p>Date: <%= e.date.strftime("%d/%m/%y at %H:%M") %></p>
